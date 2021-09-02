@@ -1,0 +1,56 @@
+@import index_styles
+// Songs page styles
+img
+  width: 100px
+// Mobile
+.song-container
+  display: flex
+  flex-direction: column
+  align-items: center
+  padding: 2rem 0
+  width: 100%
+  background: $background_color
+  &__item
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: space-around
+    padding: 1rem
+    border-radius: $border_radius
+    width: 300px
+    min-height: 400px
+    margin-bottom: 1rem
+    background: $gradient_gray
+    cursor: default
+    text-align: center
+    & img
+      width: 200px
+      border-radius: $border_radius
+    & a
+      font-size: 3rem
+      color: $gray_lightest
+      text-decoration: none
+      font-weight: 300
+    & .btn
+      background: $green_spotify
+      padding: 0.3rem
+      border-radius: 10px
+      text-align: center
+      width: 5rem
+      &:hover
+        transform: scale(1.2)
+
+@media screen and ( min-width: 700px )
+  .song-container
+    width: 90%
+    flex-direction: row
+    flex-wrap: wrap
+    margin-top: 3rem
+    &__item
+      margin: 0 1rem 1rem 0
+      min-width: 300px
+      height: 400px
+      padding: 1rem
+      text-align: center
+    & h1
+      font-size: max(1.2rem)

@@ -81,7 +81,7 @@
   color: black;
 }
 
-@media screen and (min-width: 760px) {
+@media screen and (min-width: 700px) {
   .index-header {
     font-size: 1.7rem;
     font-weight: 300;

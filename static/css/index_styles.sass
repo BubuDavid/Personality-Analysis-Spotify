@@ -7,6 +7,7 @@ $gray_lighter    : #979797
 $gray_lightest   : #E8EAE6
 $background_color: #F5EAEA
 $border_radius   : 20px
+$gradient_gray   : linear-gradient(to bottom, rgba(91,86,86,1) 0%, rgba(151,151,151,1) 100%)
 // Index Styles
 .index-header
   position: absolute
@@ -66,7 +67,7 @@ $border_radius   : 20px
       color: black
 
 // --------- Larger Dispositives -----------
-@media screen and ( min-width: 760px )
+@media screen and ( min-width: 700px )
   .index-header
     font-size: 1.7rem
     font-weight: 300
@@ -75,7 +76,7 @@ $border_radius   : 20px
     background-color: $gray_lighter
   .index-container
     background: rgb(91,86,86)
-    background: linear-gradient(to bottom, rgba(91,86,86,1) 0%, rgba(151,151,151,1) 100%)
+    background: $gradient_gray
     width: 40%
     height: 80%
     border-radius: $border_radius

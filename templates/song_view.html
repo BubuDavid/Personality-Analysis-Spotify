@@ -1,12 +1,17 @@
 {% extends 'base.html' %}
-
 {% block content %}
+<header class="index-header">Personality Analysis based on <i class="fab fa-spotify"></i> Music</header>
+    <section class="song-container">
     {% for song in context.songs %}
-            <p>{{song.name}}</p>
-            <p>{{song.track_id}}</p>
-            <p>{{song.artists}}</p>
-        <a href="{{ song.uri }}">LINK!</a>
+        <div class="song-container__item">
+            <img src="{{song.image}}" alt="">
+            <h1>{{song.name}}</h1>
+            <p>| {{song.artists|join(' | ')}} |</p>
+        <div class="btn"><a href="{{ song.uri }}"><i class="fab fa-spotify"></i></a></div>
+    </div>
     {% endfor %}
+    
+</section>
     
 {% endblock %}
 
