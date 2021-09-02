@@ -1,0 +1,97 @@
+// --------- Mobile -----------
+//  Declare variables
+$green_spotify   : #1DB954
+$blue_twitter    : #1D9BF0
+$gray_light      : #5B5656
+$gray_lighter    : #979797
+$gray_lightest   : #E8EAE6
+$background_color: #F5EAEA
+$border_radius   : 20px
+// Index Styles
+.index-header
+  position: absolute
+  top: 0
+  left: 0
+  text-align: center
+  padding: 0.3rem
+  width: 100%
+  z-index: 999
+  height: 2rem
+  background-color: $background_color
+  cursor: pointer
+.index-container
+  display: flex
+  flex-direction: column
+  align-items: center
+  position: relative
+  background-color: $gray_light
+  height: 100%
+  width: 100%
+  padding: 1.5rem
+  color: $gray_lightest
+  & .container__text
+    margin-top: 2rem
+    text-align: center
+    &--title
+    &--p
+      font-weight: 200
+  & .container__btn
+    text-decoration: none
+    text-align: center
+    padding: 0.2rem
+    color: $gray_lightest
+    background-color: $green_spotify
+    font-size: 3rem
+    margin-top: 3rem
+    border-radius: $border_radius
+    width: 4.2rem
+    height: 4.2rem
+  & .container__footer
+    display: flex
+    align-items: center
+    justify-content: space-around
+    position: absolute
+    bottom: 0
+    left: 0
+    height: 3rem
+    width: 100%
+    background-color: $gray_lighter
+    font-size: 2rem
+    & a
+        width: 100%
+        height: 100%
+        text-align: center
+        text-decoration: none
+    & .social-icon
+      color: black
+
+// --------- Larger Dispositives -----------
+@media screen and ( min-width: 760px )
+  .index-header
+    font-size: 1.7rem
+    font-weight: 300
+    height: 3rem
+    color: $gray_lightest
+    background-color: $gray_lighter
+  .index-container
+    background: rgb(91,86,86)
+    background: linear-gradient(to bottom, rgba(91,86,86,1) 0%, rgba(151,151,151,1) 100%)
+    width: 40%
+    height: 80%
+    border-radius: $border_radius
+    overflow: hidden
+    & .container__text
+      &--title
+        font-size: 2rem
+      &--p
+        font-size: 1.4rem
+    & .container__btn:hover
+      transform: scale(1.5)
+    & .container__footer
+      background-color: transparent
+      & .twitter i
+        transition: 0s
+      & a:hover
+        background-color: $background_color
+      & .twitter:hover
+        color: $blue_twitter

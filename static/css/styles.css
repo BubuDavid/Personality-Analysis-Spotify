@@ -1,9 +1,151 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;800;900&display=swap");
+.index-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  text-align: center;
+  padding: 0.3rem;
+  width: 100%;
+  z-index: 999;
+  height: 2rem;
+  background-color: #F5EAEA;
+  cursor: pointer;
+}
+
+.index-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+  background-color: #5B5656;
+  height: 100%;
+  width: 100%;
+  padding: 1.5rem;
+  color: #E8EAE6;
+}
+
+.index-container .container__text {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.index-container .container__text--p {
+  font-weight: 200;
+}
+
+.index-container .container__btn {
+  text-decoration: none;
+  text-align: center;
+  padding: 0.2rem;
+  color: #E8EAE6;
+  background-color: #1DB954;
+  font-size: 3rem;
+  margin-top: 3rem;
+  border-radius: 20px;
+  width: 4.2rem;
+  height: 4.2rem;
+}
+
+.index-container .container__footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3rem;
+  width: 100%;
+  background-color: #979797;
+  font-size: 2rem;
+}
+
+.index-container .container__footer a {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  text-decoration: none;
+}
+
+.index-container .container__footer .social-icon {
+  color: black;
+}
+
+@media screen and (min-width: 760px) {
+  .index-header {
+    font-size: 1.7rem;
+    font-weight: 300;
+    height: 3rem;
+    color: #E8EAE6;
+    background-color: #979797;
+  }
+  .index-container {
+    background: #5b5656;
+    background: -webkit-gradient(linear, left top, left bottom, from(#5b5656), to(#979797));
+    background: linear-gradient(to bottom, #5b5656 0%, #979797 100%);
+    width: 40%;
+    height: 80%;
+    border-radius: 20px;
+    overflow: hidden;
+  }
+  .index-container .container__text--title {
+    font-size: 2rem;
+  }
+  .index-container .container__text--p {
+    font-size: 1.4rem;
+  }
+  .index-container .container__btn:hover {
+    -webkit-transform: scale(1.5);
+            transform: scale(1.5);
+  }
+  .index-container .container__footer {
+    background-color: transparent;
+  }
+  .index-container .container__footer .twitter i {
+    -webkit-transition: 0s;
+    transition: 0s;
+  }
+  .index-container .container__footer a:hover {
+    background-color: #F5EAEA;
+  }
+  .index-container .container__footer .twitter:hover {
+    color: #1D9BF0;
+  }
+}
+
 * {
   padding: 0;
   margin: 0;
   font-family: 'Nunito';
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  -webkit-transition: 450ms ease;
+  transition: 450ms ease;
+}
+
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+  height: 100vh;
+  background-color: #F5EAEA;
 }
 /*# sourceMappingURL=styles.css.map */

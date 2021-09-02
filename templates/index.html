@@ -1,7 +1,21 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1 id="Hello-World" >
-        <a href="{{context.spotify_auth_url}}">Hello World From Flask</a>
-    </h1>
+    <header class="index-header">Personality Analysis based on <i class="fab fa-spotify"></i> Music</header>
+    <section class="index-container">
+        <div class="container__text">
+            <h1 class="container__text--title">
+                Recomiéndame música 🎶
+            </h1>
+            <p class="container__text--p">
+                Queremos conocerte mejor.
+            </p>
+        </div>
+    <a class="container__btn" href="{{context.spotify_auth_url}}"><i class="fab fa-spotify"></i></a>
+
+    <section class="container__footer">
+        <a class="social-icon github" href="https://github.com/BubuDavid/Personality-Analysis-Spotify"><i class="fab fa-github-square"></i></a>
+        <a class="social-icon twitter" href="https://twitter.com/DBubu73"><i class="fab fa-twitter-square"></i></a>
+    </section>
+    </section>
 {% endblock %}
