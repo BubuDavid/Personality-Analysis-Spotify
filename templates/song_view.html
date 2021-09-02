@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% for song in context.songs %}
+            <p>{{song.name}}</p>
+            <p>{{song.track_id}}</p>
+            <p>{{song.artists}}</p>
+        <a href="{{ song.uri }}">LINK!</a>
+    {% endfor %}
+    
+{% endblock %}
+
+

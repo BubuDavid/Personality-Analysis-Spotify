@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1 id="Hello-World" >Hello World From Flask</h1>
+    <h1 id="Hello-World" >
+        <a href="{{context.spotify_auth_url}}">Hello World From Flask</a>
+    </h1>
 {% endblock %}
