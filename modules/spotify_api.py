@@ -96,6 +96,11 @@ class SpotifyBubuApi:
         # Change the id key because of the databse problematic
         for track in track_list:
             track['track_id'] = track.pop('id')
+        # Get the album image if needed
+        if 'album' in key_names:
+            for track in track_list:
+                track['image'] = track['album']['images'][0]['url']
+                track.pop('album')
         # Give format for artists field (for now, just the names)
         if 'artists' not in key_names:
             return track_list

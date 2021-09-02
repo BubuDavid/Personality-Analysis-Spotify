@@ -16,6 +16,23 @@ body
   position: relative
   background-color: $background_color
 
-
-    
-  
+// Header Styles
+.header
+  position: absolute  
+  top: 0
+  left: 0
+  text-align: center
+  padding: 0.3rem
+  width: 100%
+  z-index: 999
+  height: 2rem
+  background-color: $background_color
+  cursor: pointer
+// Large view 
+@media screen and ( min-width: 700px )
+  .header
+    font-size: 1.7rem
+    font-weight: 300
+    height: 3rem
+    color: $gray_lightest
+    background-color: $gray_lighter

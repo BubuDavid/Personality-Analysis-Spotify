@@ -72,14 +72,14 @@ def songs_page_method():
     only if the user has played at least 50 songs on 
     his/her spotify account.
     """
-    recent_songs = spotify.get_top_tracks_or_artists(
-        key_names   = ['name', 'artists', 'id', 'uri']
+    top_songs = spotify.get_top_tracks_or_artists(
+        key_names   = ['name', 'artists', 'id', 'uri','album']
     )
 
     # Define the context to pass to.
     context = {
-        'page_title': 'Welcome!',
-        'songs'     : recent_songs
+        'page_title': 'Your Songs!',
+        'songs'     : top_songs
     }
     # Render the template with 50 songs
     return render_template('song_view.html', context=context)

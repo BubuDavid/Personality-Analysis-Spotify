@@ -9,24 +9,13 @@ $background_color: #F5EAEA
 $border_radius   : 20px
 $gradient_gray   : linear-gradient(to bottom, rgba(91,86,86,1) 0%, rgba(151,151,151,1) 100%)
 // Index Styles
-.index-header
-  position: absolute
-  top: 0
-  left: 0
-  text-align: center
-  padding: 0.3rem
-  width: 100%
-  z-index: 999
-  height: 2rem
-  background-color: $background_color
-  cursor: pointer
 .index-container
   display: flex
   flex-direction: column
   align-items: center
   position: relative
   background-color: $gray_light
-  height: 100%
+  min-height: 100%
   width: 100%
   padding: 1.5rem
   color: $gray_lightest
@@ -47,6 +36,12 @@ $gradient_gray   : linear-gradient(to bottom, rgba(91,86,86,1) 0%, rgba(151,151,
     border-radius: $border_radius
     width: 4.2rem
     height: 4.2rem
+  & .container__p
+    margin-top: 2rem
+    font-size: 1.2rem
+    text-align: center
+  & .container__btn:hover
+      transform: scale(1.5)
   & .container__footer
     display: flex
     align-items: center
@@ -58,6 +53,13 @@ $gradient_gray   : linear-gradient(to bottom, rgba(91,86,86,1) 0%, rgba(151,151,
     width: 100%
     background-color: $gray_lighter
     font-size: 2rem
+    & a:hover
+      background-color: $background_color
+      opacity: 1
+    & .twitter:hover
+      color: $blue_twitter
+    & .twitter i
+      transition: 0s
     & a
         width: 100%
         height: 100%
@@ -65,20 +67,15 @@ $gradient_gray   : linear-gradient(to bottom, rgba(91,86,86,1) 0%, rgba(151,151,
         text-decoration: none
     & .social-icon
       color: black
+      opacity: 0.5
 
 // --------- Larger Dispositives -----------
 @media screen and ( min-width: 700px )
-  .index-header
-    font-size: 1.7rem
-    font-weight: 300
-    height: 3rem
-    color: $gray_lightest
-    background-color: $gray_lighter
   .index-container
     background: rgb(91,86,86)
     background: $gradient_gray
-    width: 40%
-    height: 80%
+    width: 45%
+    min-height: 80%
     border-radius: $border_radius
     overflow: hidden
     & .container__text
@@ -86,13 +83,6 @@ $gradient_gray   : linear-gradient(to bottom, rgba(91,86,86,1) 0%, rgba(151,151,
         font-size: 2rem
       &--p
         font-size: 1.4rem
-    & .container__btn:hover
-      transform: scale(1.5)
     & .container__footer
       background-color: transparent
-      & .twitter i
-        transition: 0s
-      & a:hover
-        background-color: $background_color
-      & .twitter:hover
-        color: $blue_twitter
+

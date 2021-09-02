@@ -1,7 +1,6 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <header class="index-header">Personality Analysis based on <i class="fab fa-spotify"></i> Music</header>
     <section class="index-container">
         <div class="container__text">
             <h1 class="container__text--title">
@@ -12,6 +11,11 @@
             </p>
         </div>
     <a class="container__btn" href="{{context.spotify_auth_url}}"><i class="fab fa-spotify"></i></a>
+
+    <p class="container__p">
+        <b>For the moment we can only show you you top 50 songs, we are working on next phases</b>
+    </p>
+    <p class="container__p">On this page you can know what type of personality you have based on your top 50 played songs on Spotify <i class="fab fa-spotify"></i>. You can tweet randomly from 1 to 5 songs with a bot and know what kind of enchilada you are.</p>
 
     <section class="container__footer">
         <a class="social-icon github" href="https://github.com/BubuDavid/Personality-Analysis-Spotify"><i class="fab fa-github-square"></i></a>
