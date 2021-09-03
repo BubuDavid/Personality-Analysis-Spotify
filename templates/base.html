@@ -1,20 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{context.page_title}}</title>
-    <!-- Font Awesome -->
-    <link href="./static/fontawesome/css/all.css" rel="stylesheet">
-    <!-- Custom Styles -->
-    <link rel="stylesheet" href="./static/css/styles.css">
-</head>
-<body>
-    <header class="header">Personality Analysis based on <i class="fab fa-spotify"></i> Music</header>
-    {% block content %}
-    {% endblock %}
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{{ context.page_title }}</title>
+        <!-- Font Awesome -->
+        <link
+        href="{{ url_for('static', filename='fontawesome/css/all.css') }}" rel="stylesheet">
+        <!-- Custom Styles -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    </head>
+    <body>
+        <header class="header">Personality Analysis based on
+            <i class="fab fa-spotify"></i>
+            Music</header>
+        {% block content %}{% endblock %}
 
-    <script src="./static/scripts/index.js"></script>
-</body>
+        {% if context.user_info %}
+            <section class="profile_info">
+                <img src="{{ context.user_info.user_image }}" alt="Profile Image">
+                <div class="profile_text">
+                    <p class="username">{{ context.user_info.username }}</p>
+                    <a class='logout' href="/logout">Log out</a>
+                </div>
+            </section>
+        {% endif %}
+
+
+        <script src="{{ url_for('static', filename='scripts/index.js') }}"></script>
+    </body>
 </html>

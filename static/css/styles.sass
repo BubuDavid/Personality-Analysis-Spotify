@@ -28,11 +28,72 @@ body
   height: 2rem
   background-color: $background_color
   cursor: pointer
+
+.green__btn
+  background: $green_spotify
+  color: $gray_lightest
+  text-decoration: none
+  font-weight: 600
+  &:hover
+    transform: scale(1.2)
+
+.med
+  font-size: 1rem
+  padding: 0.7rem
+  border-radius: 10px
+.sh
+  font-size: 0.7rem
+  padding: 0.2rem
+  border-radius: 5px
+.lg
+  font-size: 3rem
+  padding: 0.5rem 1rem
+  border-radius: $border_radius
+
+
+.profile_info
+  position: fixed
+  left: 1rem
+  bottom: 5rem
+  z-index: 999
+  cursor: pointer
+  width: 160px
+  & img
+    border-radius: 50%
+    width: 5rem
+  & .profile_text
+    position: absolute
+    top: 10px
+    left: -100px
+    opacity: 0
+    pointer-events: none
+    transition: all 450ms
+    z-index: 888
+  &:hover .profile_text
+    transform: translateX(290%)
+    opacity: 1
+    pointer-events: auto
+    & .username
+      color: $gray_lightest
+      font-size: 1.5rem
+      font-weight: 600
+    & .logout
+      color: $gray_lightest
+      text-decoration: none
+      padding: 0.3rem
+      background-color: $gray_lighter
+      margin-top: 0.2rem
+
+
 // Large view 
-@media screen and ( min-width: 700px )
+@media screen and ( min-width: 750px )
   .header
     font-size: 1.7rem
     font-weight: 300
     height: 3rem
     color: $gray_lightest
     background-color: $gray_lighter
+  .profile_info
+    bottom: 1rem
+    &:hover .profile_text .username
+      color: $gray_light  

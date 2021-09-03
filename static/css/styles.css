@@ -16,6 +16,7 @@
   width: 100%;
   padding: 1.5rem;
   color: #E8EAE6;
+  text-align: center;
 }
 
 .index-container .container__text {
@@ -28,20 +29,26 @@
 }
 
 .index-container .container__btn {
-  text-decoration: none;
   text-align: center;
-  padding: 0.2rem;
-  color: #E8EAE6;
-  background-color: #1DB954;
-  font-size: 3rem;
-  margin-top: 3rem;
   border-radius: 20px;
-  width: 4.2rem;
-  height: 4.2rem;
+}
+
+.index-container .container__btn--wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 10px;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  margin-top: 1rem;
 }
 
 .index-container .container__p {
-  margin-top: 2rem;
+  margin-top: 1rem;
   font-size: 1.2rem;
   text-align: center;
 }
@@ -95,13 +102,16 @@
   opacity: 0.5;
 }
 
-@media screen and (min-width: 700px) {
+@media screen and (min-width: 750px) {
   .index-container {
+    position: absolute;
+    top: 5rem;
     background: #5b5656;
     background: -webkit-gradient(linear, left top, left bottom, from(#5b5656), to(#979797));
     background: linear-gradient(to bottom, #5b5656 0%, #979797 100%);
     width: 45%;
     min-height: 80%;
+    max-height: 100%;
     border-radius: 20px;
     overflow: hidden;
   }
@@ -133,6 +143,7 @@
   width: 100%;
   padding: 1.5rem;
   color: #E8EAE6;
+  text-align: center;
 }
 
 .index-container .container__text {
@@ -145,20 +156,26 @@
 }
 
 .index-container .container__btn {
-  text-decoration: none;
   text-align: center;
-  padding: 0.2rem;
-  color: #E8EAE6;
-  background-color: #1DB954;
-  font-size: 3rem;
-  margin-top: 3rem;
   border-radius: 20px;
-  width: 4.2rem;
-  height: 4.2rem;
+}
+
+.index-container .container__btn--wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 10px;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  margin-top: 1rem;
 }
 
 .index-container .container__p {
-  margin-top: 2rem;
+  margin-top: 1rem;
   font-size: 1.2rem;
   text-align: center;
 }
@@ -212,13 +229,16 @@
   opacity: 0.5;
 }
 
-@media screen and (min-width: 700px) {
+@media screen and (min-width: 750px) {
   .index-container {
+    position: absolute;
+    top: 5rem;
     background: #5b5656;
     background: -webkit-gradient(linear, left top, left bottom, from(#5b5656), to(#979797));
     background: linear-gradient(to bottom, #5b5656 0%, #979797 100%);
     width: 45%;
     min-height: 80%;
+    max-height: 100%;
     border-radius: 20px;
     overflow: hidden;
   }
@@ -365,13 +385,95 @@ body {
   cursor: pointer;
 }
 
-@media screen and (min-width: 700px) {
+.green__btn {
+  background: #1DB954;
+  color: #E8EAE6;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.green__btn:hover {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+}
+
+.med {
+  font-size: 1rem;
+  padding: 0.7rem;
+  border-radius: 10px;
+}
+
+.sh {
+  font-size: 0.7rem;
+  padding: 0.2rem;
+  border-radius: 5px;
+}
+
+.lg {
+  font-size: 3rem;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+}
+
+.profile_info {
+  position: fixed;
+  left: 1rem;
+  bottom: 5rem;
+  z-index: 999;
+  cursor: pointer;
+  width: 160px;
+}
+
+.profile_info img {
+  border-radius: 50%;
+  width: 5rem;
+}
+
+.profile_info .profile_text {
+  position: absolute;
+  top: 10px;
+  left: -100px;
+  opacity: 0;
+  pointer-events: none;
+  -webkit-transition: all 450ms;
+  transition: all 450ms;
+  z-index: 888;
+}
+
+.profile_info:hover .profile_text {
+  -webkit-transform: translateX(290%);
+          transform: translateX(290%);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.profile_info:hover .profile_text .username {
+  color: #E8EAE6;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.profile_info:hover .profile_text .logout {
+  color: #E8EAE6;
+  text-decoration: none;
+  padding: 0.3rem;
+  background-color: #979797;
+  margin-top: 0.2rem;
+}
+
+@media screen and (min-width: 750px) {
   .header {
     font-size: 1.7rem;
     font-weight: 300;
     height: 3rem;
     color: #E8EAE6;
     background-color: #979797;
+  }
+  .profile_info {
+    bottom: 1rem;
+  }
+  .profile_info:hover .profile_text .username {
+    color: #5B5656;
   }
 }
 /*# sourceMappingURL=styles.css.map */

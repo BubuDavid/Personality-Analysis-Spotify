@@ -1,17 +1,21 @@
 {% extends 'base.html' %}
 {% block content %}
     <section class="song-container">
-    {% for song in context.songs %}
-        <div class="song-container__item">
-            <img src="{{song.image}}" alt="">
-            <h1>{{song.name}}</h1>
-            <p>| {{song.artists|join(' | ')}} |</p>
-        <div class="btn"><a href="{{ song.uri }}"><i class="fab fa-spotify"></i></a></div>
-    </div>
-    {% endfor %}
-    
-</section>
-    
-{% endblock %}
+        {% for song in context.songs %}
+            <div class="song-container__item">
+                <img src="{{ song.image }}" alt="">
+                    <h1>{{ song.name }}</h1>
+                    <p>|
+                        {{ song.artists|join(' | ') }}
+                        |</p>
+                    <div class="green__btn lg">
+                        <a href="{{ song.uri }}">
+                            <i class="fab fa-spotify"></i>
+                        </a>
+                    </div>
+                </div>
+            {% endfor %}
 
+        </section>
 
+    {% endblock %}

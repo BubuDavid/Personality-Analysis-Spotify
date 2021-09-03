@@ -39,6 +39,18 @@
   height: 4.2rem;
 }
 
+.index-container .container__btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.index-container .container__btn .short {
+  font-size: 1.2;
+}
+
 .index-container .container__p {
   margin-top: 2rem;
   font-size: 1.2rem;

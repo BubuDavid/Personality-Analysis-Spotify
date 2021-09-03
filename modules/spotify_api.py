@@ -82,6 +82,20 @@ class SpotifyBubuApi:
             'Authorization': f'Bearer {self.access_token}' 
         }
     
+    def get_user_profile(self):
+        # Define endpoint and headers
+        endpoint = 'https://api.spotify.com/v1/me'
+        headers = self.get_headers_authorization()
+
+        # Requesting user information
+        r = requests.get(endpoint, headers=headers)
+        # Catch some errors
+        e = self.catch_errors(r)
+        if e:
+            return e
+        return r.json()
+    
+    # Check and format tracks for below methods
     def check_and_format(self, tracks, key_names):
         # If not key names given, return all the data
         if not key_names:
@@ -127,11 +141,10 @@ class SpotifyBubuApi:
             params=query_parameters, 
             headers=headers
         )
-        # Catching an error
-        if not r.status_code in range(200, 209):
-            print(r.status_code)
-            print(r.text)
-            raise Error('Hey hey heeey, amon vacations')
+        # Catch some errors
+        e = self.catch_errors(r)
+        if e:
+            return e
         # Get the items in a json way
         tracks = r.json()['items']
         # Format
@@ -156,11 +169,10 @@ class SpotifyBubuApi:
             params=query_parameters,
             headers=headers
         )
-        # Catching an error
-        if not r.status_code in range(200, 209):
-            print(r.status_code)
-            print(r.text)
-            raise Error('Hey hey heeey, amon vacations')
+        # Catch some errors
+        e = self.catch_errors(r)
+        if e:
+            return e
         # Get the items in a json way
         json_items = r.json()['items']
         # Filter the items, we just want the track object
@@ -168,7 +180,15 @@ class SpotifyBubuApi:
         for item in json_items:
             tracks.append(item['track'])
         # Format and handling errors
-        return self.check_and_format(tracks, key_names)                
+        return self.check_and_format(tracks, key_names)      
+
+    def catch_errors(self, r):
+        # Catching an error
+        if not r.status_code in range(200, 209):
+            print(r.status_code)
+            print(r.text)
+            return True
+        return False        
 
 # Create function for testing
 if __name__ == '__main__':
@@ -176,6 +196,7 @@ if __name__ == '__main__':
     from decouple import config
     import webbrowser
     import json
+    import os
     # Get keys
     client_id     = config('SPOTIFY_CLIENT_ID')
     client_secret = config('SPOTIFY_CLIENT_SECRET')
@@ -192,6 +213,8 @@ if __name__ == '__main__':
     # Get the code
     f = open('code.txt', 'r')
     code = f.read()
+    f.close()
+    os.remove('code.txt')
     if not code:
         raise Error('Not code bro...')
     spotify.code_for_token = code
@@ -208,10 +231,12 @@ if __name__ == '__main__':
         key_names   = ['name', 'artists', 'id', 'uri']
     )
     ### Recently played part ###
-    recently_tracks = spotify.get_recent_tracks(
+    recent_tracks = spotify.get_recent_tracks(
         limit       = 1,
         key_names   = ['name', 'artists', 'id', 'uri']
     )
-
+    ### User's profile
+    user_profile = spotify.get_user_profile()
+    print(json.dumps(user_profile, indent=4, sort_keys=True))
     # Done
     print('Everything is done')

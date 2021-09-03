@@ -20,8 +20,7 @@ spotify = SpotifyBubuApi(
     spotify_redirect_uri
 )
 # Define the spotify scopes that we want access to.
-scopes = ['user-top-read']
-
+scopes = ['user-top-read', 'user-read-recently-played']
 
 
 # Init our app flask object
@@ -36,12 +35,16 @@ def index_method():
     nothing but a page title and an url for get
     spotify authorization
     """
+    # Set up default user_info
+    if 'user_info' not in session:
+        session['user_info'] = ''
     # Get the url for authorization
     spotify_auth_url = spotify.get_auth_url(scopes)
     # Create the context to pass it to the page
     context = {
         'page_title'      : 'Welcome!',
         'spotify_auth_url': spotify_auth_url,
+        'user_info'       : session['user_info']
     }
     # Render the index template with the contexts variables
     return render_template('index.html', context=context)
@@ -61,30 +64,60 @@ def spotify_callback_method():
     # Set the spotify token
     spotify.code_for_token = spotify_code
     spotify.set_token()
-    print(spotify.access_token)
-    # Redirect to the track page
-    return redirect('/songs-page')
+    # Get user information
+    user_info = spotify.get_user_profile()
+    session['user_info'] = {
+            'username'  : user_info['display_name'],
+            'spotify_id'   : user_info['id'],
+            'user_image': user_info['images'][0]['url']
+        }
 
-@app.route('/songs-page')
-def songs_page_method():
+    # Redirect to the track page
+    return redirect('/')
+
+@app.route('/songs-page/<type>/')
+@app.route('/songs-page/<type>/<term>')
+def songs_page_method(type='', term=''):
     """
     This view will display 50 top songs of this user
     only if the user has played at least 50 songs on 
     his/her spotify account.
     """
-    top_songs = spotify.get_top_tracks_or_artists(
-        key_names   = ['name', 'artists', 'id', 'uri','album']
-    )
+    # Check if the user is login and get into the right url
+    if 'user_info' not in session or not type:
+        redirect('/')
+    # Display the correct information
+    if type == 'top':
+        songs = spotify.get_top_tracks_or_artists(
+            key_names   = ['name', 'artists', 'id', 'uri','album']
+        )
+    elif type == 'recent':
+        songs = spotify.get_recent_tracks(
+            key_names   = ['name', 'artists', 'id', 'uri','album']
+        )
+    else:
+        redirect('/')
 
+    # Check if some error with the token
+    if isinstance(songs, bool):
+        return redirect('/logout')
     # Define the context to pass to.
     context = {
         'page_title': 'Your Songs!',
-        'songs'     : top_songs
+        'songs'     : songs,
+        'user_info' : session['user_info']
     }
     # Render the template with 50 songs
     return render_template('song_view.html', context=context)
 
-# This is a route for testing the spotify module
+@app.route('/logout')
+def logout_method():
+    if session['user_info']:
+        session.pop('user_info')
+    
+    return redirect('/')
+
+# # This is a route for testing the spotify module
 # @app.route('/spotify-callback')
 # def spotify_callback_method():
 #     spotify_code = request.args.get('code')
