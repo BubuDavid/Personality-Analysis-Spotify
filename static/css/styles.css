@@ -417,8 +417,9 @@ body {
 
 .profile_info {
   position: fixed;
-  left: 1rem;
-  bottom: 5rem;
+  left: 0;
+  padding-left: 1rem;
+  bottom: 3rem;
   z-index: 999;
   cursor: pointer;
   width: 160px;
@@ -427,6 +428,11 @@ body {
 .profile_info img {
   border-radius: 50%;
   width: 5rem;
+}
+
+.profile_info img.hidden {
+  -webkit-transform: translate(-100%, 0);
+          transform: translate(-100%, 0);
 }
 
 .profile_info .profile_text {
@@ -440,25 +446,34 @@ body {
   z-index: 888;
 }
 
+.profile_info:hover #profile_image {
+  -webkit-transform: translate(0);
+          transform: translate(0);
+}
+
 .profile_info:hover .profile_text {
-  -webkit-transform: translateX(290%);
-          transform: translateX(290%);
+  -webkit-transform: translateX(200px);
+          transform: translateX(200px);
   opacity: 1;
   pointer-events: auto;
 }
 
-.profile_info:hover .profile_text .username {
-  color: #E8EAE6;
+.profile_info .username {
+  color: #1DB954;
+  background-color: #E8EAE6;
   font-size: 1.5rem;
   font-weight: 600;
+  border-radius: 10px 10px 0 0;
+  text-align: center;
 }
 
-.profile_info:hover .profile_text .logout {
+.profile_info .logout {
   color: #E8EAE6;
   text-decoration: none;
   padding: 0.3rem;
-  background-color: #979797;
+  background-color: #1DB954;
   margin-top: 0.2rem;
+  border-radius: 0 0 10px 10px;
 }
 
 @media screen and (min-width: 750px) {
@@ -471,9 +486,6 @@ body {
   }
   .profile_info {
     bottom: 1rem;
-  }
-  .profile_info:hover .profile_text .username {
-    color: #5B5656;
   }
 }
 /*# sourceMappingURL=styles.css.map */

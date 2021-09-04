@@ -28,7 +28,7 @@ body
   height: 2rem
   background-color: $background_color
   cursor: pointer
-
+// Buttons 
 .green__btn
   background: $green_spotify
   color: $gray_lightest
@@ -50,17 +50,20 @@ body
   padding: 0.5rem 1rem
   border-radius: $border_radius
 
-
+// profile info syles
 .profile_info
   position: fixed
-  left: 1rem
-  bottom: 5rem
+  left: 0
+  padding-left: 1rem
+  bottom: 3rem
   z-index: 999
   cursor: pointer
   width: 160px
   & img
     border-radius: 50%
     width: 5rem
+  & img.hidden
+    transform: translate(-100%, 0)
   & .profile_text
     position: absolute
     top: 10px
@@ -69,20 +72,26 @@ body
     pointer-events: none
     transition: all 450ms
     z-index: 888
+  &:hover #profile_image
+    transform: translate(0)
   &:hover .profile_text
-    transform: translateX(290%)
+    transform: translateX(200px)
     opacity: 1
     pointer-events: auto
-    & .username
-      color: $gray_lightest
-      font-size: 1.5rem
-      font-weight: 600
-    & .logout
-      color: $gray_lightest
-      text-decoration: none
-      padding: 0.3rem
-      background-color: $gray_lighter
-      margin-top: 0.2rem
+  & .username
+    color: $green_spotify
+    background-color: $gray_lightest
+    font-size: 1.5rem
+    font-weight: 600
+    border-radius: 10px 10px 0 0
+    text-align: center
+  & .logout
+    color: $gray_lightest
+    text-decoration: none
+    padding: 0.3rem
+    background-color: $green_spotify
+    margin-top: 0.2rem
+    border-radius: 0 0 10px 10px
 
 
 // Large view 
@@ -95,5 +104,3 @@ body
     background-color: $gray_lighter
   .profile_info
     bottom: 1rem
-    &:hover .profile_text .username
-      color: $gray_light  

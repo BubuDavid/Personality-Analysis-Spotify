@@ -14,12 +14,13 @@
     <body>
         <header class="header">Personality Analysis based on
             <i class="fab fa-spotify"></i>
-            Music</header>
+            Music
+        </header>
         {% block content %}{% endblock %}
 
         {% if context.user_info %}
             <section class="profile_info">
-                <img src="{{ context.user_info.user_image }}" alt="Profile Image">
+                <img id="profile_image" src="{{ context.user_info.user_image }}" alt="Profile Image">
                 <div class="profile_text">
                     <p class="username">{{ context.user_info.username }}</p>
                     <a class='logout' href="/logout">Log out</a>
