@@ -114,7 +114,7 @@ def songs_page_method(type='', term=''):
 
 @app.route('/logout')
 def logout_method():
-    if session['user_info']:
+    if 'user_info' in session and session['user_info']:
         session.pop('user_info')
     
     return redirect('/')
