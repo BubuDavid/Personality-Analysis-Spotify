@@ -1,6 +1,9 @@
 # Specific files for this project
-test_front.py
+tests.py
 code.txt
+
+# SASS maps
+*.css.map
 
 # VS code 
 .vscode
@@ -143,6 +146,3 @@ dmypy.json
 
 # Cython debug symbols
 cython_debug/
-
-# SASS maps
-.map

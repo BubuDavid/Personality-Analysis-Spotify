@@ -6,7 +6,7 @@ from flask import Flask, render_template,\
 from decouple import config
 
 # Import from my modules
-from modules.spotify_api import SpotifyBubuApi
+from models.spotify_api import SpotifyBubuApi
 
 # Get environment variables from a hidden .env file
 secret_key            = config('SECRET_KEY')
@@ -118,20 +118,6 @@ def logout_method():
         session.pop('user_info')
     
     return redirect('/')
-
-# # This is a route for testing the spotify module
-# @app.route('/spotify-callback')
-# def spotify_callback_method():
-#     spotify_code = request.args.get('code')
-#     if not spotify_code:
-#         f = open('modules/code.txt', 'w')
-#         f.write('')
-#         f.close()
-#         return redirect('/')
-#     f = open('modules/code.txt', 'w')
-#     f.write(spotify_code)
-#     f.close()
-#     return redirect('/')
 
 # Start the app
 if __name__ == '__main__':
