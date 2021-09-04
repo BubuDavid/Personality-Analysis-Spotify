@@ -7,7 +7,6 @@
   margin: 0
   font-family: 'Nunito'
   box-sizing: border-box
-  transition: 450ms ease
 //  Format the body
 body
   display: flex
@@ -18,7 +17,7 @@ body
 
 // Header Styles
 .header
-  position: absolute  
+  position: fixed  
   top: 0
   left: 0
   text-align: center
@@ -28,12 +27,17 @@ body
   height: 2rem
   background-color: $background_color
   cursor: pointer
+  transition: background-color 450ms
+  &.scrolling
+    color: $gray_lightest
+    background: $gray_lighter
 // Buttons 
 .green__btn
   background: $green_spotify
   color: $gray_lightest
   text-decoration: none
   font-weight: 600
+  transition: transform 450ms ease
   &:hover
     transform: scale(1.2)
 
@@ -62,6 +66,7 @@ body
   & img
     border-radius: 50%
     width: 5rem
+    transition: transform 500ms
   & img.hidden
     transform: translate(-100%, 0)
   & .profile_text
@@ -105,14 +110,3 @@ body
   .profile_info
     bottom: 1rem
 
-  .categories
-    display: flex
-    justify-content: space-around
-    position: absolute
-    top: 3.3rem
-    & a 
-      margin-right: 1rem
-      &.active
-        background-color: white
-        color: $green_spotify
-        pointer-events: none

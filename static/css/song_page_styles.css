@@ -145,6 +145,8 @@ img {
           justify-content: space-evenly;
   padding: 2rem 0;
   width: 100%;
+  margin: 0 2rem;
+  margin-top: 2.3rem;
   background: #F5EAEA;
 }
 
@@ -184,17 +186,22 @@ img {
   font-weight: 300;
 }
 
-.song-container__item .btn {
-  background: #1DB954;
-  padding: 0.3rem;
-  border-radius: 10px;
-  text-align: center;
-  width: 5rem;
+.categories {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  width: 100%;
+  padding: 0 2rem;
+  position: absolute;
+  top: 2.5rem;
 }
 
-.song-container__item .btn:hover {
-  -webkit-transform: scale(1.2);
-          transform: scale(1.2);
+.categories a.active {
+  background-color: white;
+  color: #1DB954;
+  pointer-events: none;
 }
 
 @media screen and (min-width: 700px) {
@@ -217,6 +224,12 @@ img {
   }
   .song-container h1 {
     font-size: 1.2rem;
+  }
+  .categories {
+    top: 3.3rem;
+  }
+  .categories a {
+    margin-right: 1rem;
   }
 }
 /*# sourceMappingURL=song_page_styles.css.map */

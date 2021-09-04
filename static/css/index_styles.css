@@ -52,11 +52,6 @@
   text-align: center;
 }
 
-.index-container .container__btn:hover {
-  -webkit-transform: scale(1.5);
-          transform: scale(1.5);
-}
-
 .index-container .container__footer {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -73,6 +68,11 @@
   width: 100%;
   background-color: #979797;
   font-size: 2rem;
+}
+
+.index-container .container__footer a {
+  -webkit-transition: background-color 450ms;
+  transition: background-color 450ms;
 }
 
 .index-container .container__footer a:hover {

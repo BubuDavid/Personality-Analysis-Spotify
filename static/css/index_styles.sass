@@ -40,8 +40,6 @@ $gradient_gray   : linear-gradient(to bottom, rgba(91,86,86,1) 0%, rgba(151,151,
     margin-top: 1rem
     font-size: 1.2rem
     text-align: center
-  & .container__btn:hover
-      transform: scale(1.5)
   & .container__footer
     display: flex
     align-items: center
@@ -53,6 +51,8 @@ $gradient_gray   : linear-gradient(to bottom, rgba(91,86,86,1) 0%, rgba(151,151,
     width: 100%
     background-color: $gray_lighter
     font-size: 2rem
+    & a
+      transition: background-color 450ms
     & a:hover
       background-color: $background_color
       opacity: 1

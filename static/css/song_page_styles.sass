@@ -10,6 +10,8 @@ img
   justify-content: space-evenly
   padding: 2rem 0
   width: 100%
+  margin: 0 2rem
+  margin-top: 2.3rem
   background: $background_color
   &__item
     display: flex
@@ -32,14 +34,18 @@ img
       color: $gray_lightest
       text-decoration: none
       font-weight: 300
-    & .btn
-      background: $green_spotify
-      padding: 0.3rem
-      border-radius: 10px
-      text-align: center
-      width: 5rem
-      &:hover
-        transform: scale(1.2)
+
+.categories
+  display: flex
+  justify-content: space-around
+  width: 100%
+  padding: 0 2rem
+  position: absolute
+  top: 2.5rem
+  & a.active
+    background-color: white
+    color: $green_spotify
+    pointer-events: none
 
 @media screen and ( min-width: 700px )
   .song-container
@@ -55,3 +61,8 @@ img
       text-align: center
     & h1
       font-size: max(1.2rem)
+
+  .categories
+    top: 3.3rem
+    & a 
+      margin-right: 1rem
