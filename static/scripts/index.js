@@ -13,3 +13,19 @@ if (page_url.includes("songs-page")) {
     profile_img.classList.add("hidden");
   }, 500);
 }
+
+// Activate or deactivate the btns
+if (page_url.includes("songs-page/top")) {
+  if (page_url.includes("short_term")) {
+    const activateBtn = document.getElementById("short_term");
+    activateBtn.classList.add("active");
+  }
+  if (page_url.includes("medium_term")) {
+    const activateBtn = document.getElementById("medium_term");
+    activateBtn.classList.add("active");
+  }
+  if (page_url.includes("long_term")) {
+    const activateBtn = document.getElementById("long_term");
+    activateBtn.classList.add("active");
+  }
+}

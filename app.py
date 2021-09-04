@@ -87,9 +87,11 @@ def songs_page_method(type='', term=''):
     if 'user_info' not in session or not type:
         redirect('/')
     # Display the correct information
-    if type == 'top':
+    print(term)
+    if type == 'top' and term in ['short_term', 'long_term', 'medium_term']:
         songs = spotify.get_top_tracks_or_artists(
-            key_names   = ['name', 'artists', 'id', 'uri','album']
+            key_names   = ['name', 'artists', 'id', 'uri','album'],
+            time_range=term
         )
     elif type == 'recent':
         songs = spotify.get_recent_tracks(

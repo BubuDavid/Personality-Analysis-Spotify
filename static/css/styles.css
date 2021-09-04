@@ -487,5 +487,22 @@ body {
   .profile_info {
     bottom: 1rem;
   }
+  .categories {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    position: absolute;
+    top: 3.3rem;
+  }
+  .categories a {
+    margin-right: 1rem;
+  }
+  .categories a.active {
+    background-color: white;
+    color: #1DB954;
+    pointer-events: none;
+  }
 }
 /*# sourceMappingURL=styles.css.map */

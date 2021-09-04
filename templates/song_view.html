@@ -1,5 +1,10 @@
 {% extends 'base.html' %}
 {% block content %}
+    <section class="categories">
+        <a id='short_term' class="green__btn sh" href="/songs-page/top/short_term">Last month</a>
+        <a id='medium_term' class="green__btn sh" href="/songs-page/top/medium_term">6 months</a>
+        <a id='long_term' class="green__btn sh" href="/songs-page/top/long_term">All time</a>
+    </section>
     <section class="song-container">
         {% for song in context.songs %}
             <div class="song-container__item">
