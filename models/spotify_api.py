@@ -227,9 +227,15 @@ if __name__ == '__main__':
     top_tracks_json = spotify.get_top_tracks_or_artists(
         type        = 'tracks',
         time_range  = 'short_term',
-        limit       = 0,
-        key_names   = ['name', 'artists', 'id', 'uri']
+        #limit       = 0,
+        key_names   = ['name', 'artists', 'id', 'uri'],
     )
+    # Saves all the data
+    # with open('../static/scripts/songs.json', 'w') as outfile:
+    #      json.dump(top_tracks_json, outfile, indent=4)
+    # print(json.dumps(top_tracks_json, indent=4, sort_keys=True))
+
+
     ### Recently played part ###
     recent_tracks = spotify.get_recent_tracks(
         limit       = 1,
@@ -237,6 +243,6 @@ if __name__ == '__main__':
     )
     ### User's profile
     user_profile = spotify.get_user_profile()
-    print(json.dumps(user_profile, indent=4, sort_keys=True))
+    #print(json.dumps(user_profile, indent=4, sort_keys=True))
     # Done
     print('Everything is done')
