@@ -1,29 +1,27 @@
+# Import Python imports
+from decouple import config
 # Import important imports from flask
 from flask import Flask, render_template,\
                   request, \
                   session, redirect
-# Import Python imports
-from decouple import config
-
+from pymongo import mongo_client
 # Import from my modules
-from models.spotify_api import SpotifyBubuApi
+from setup.setup import get_Spotify_API, get_mongo_client
+from models.mongo_db_functions import insert_user_mongo_db
 
 # Get environment variables from a hidden .env file
-secret_key            = config('SECRET_KEY')
-spotify_client_id     = config('SPOTIFY_CLIENT_ID')
-spotify_client_secret = config('SPOTIFY_CLIENT_SECRET')
-spotify_redirect_uri  = config('SPOTIFY_REDIRECT_URI')
-# Instance of SpotifyBubuApi
-spotify = SpotifyBubuApi(
-    spotify_client_id,
-    spotify_client_secret,
-    spotify_redirect_uri
-)
-# Define the spotify scopes that we want access to.
-scopes = ['user-top-read', 'user-read-recently-played']
+secret_key = config('SECRET_KEY')
 
+###### Spotify setup ######
+# Define our spotify object
+spotify = get_Spotify_API()
+# Define the spotify scopes that we want access to.
+scopes = ['user-top-read', 'user-read-recently-played', 'user-read-email']
 # Get the url for authorization
 spotify_auth_url = spotify.get_auth_url(scopes)
+
+###### Mongo setup ######
+mongo_db = get_mongo_client()
 
 
 # Init our app flask object
@@ -39,7 +37,7 @@ def index_method():
     spotify authorization
     """
     # Set up default user_info
-    if 'user_info' not in session:
+    if 'user_info' not in session or not spotify.access_token:
         session['user_info'] = ''
     # Create the context to pass it to the page
     context = {
@@ -65,13 +63,18 @@ def spotify_callback_method():
     # Set the spotify token
     spotify.code_for_token = spotify_code
     spotify.set_token()
-    # Get user information
+    # Get user information and store it
     user_info = spotify.get_user_profile()
     session['user_info'] = {
             'username'  : user_info['display_name'],
             'spotify_id'   : user_info['id'],
             'user_image': user_info['images'][0]['url']
         }
+    
+    # Get the users collection
+    song_collection = mongo_db['users']
+    # Insert user in the db
+    insert_user_mongo_db(song_collection, spotify)
 
     # Redirect to the track page
     return redirect('/')
