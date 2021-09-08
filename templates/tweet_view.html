@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <section class="random-songs__container"></section>
+
+    <div class="tweet__container">
+        <p id="tweet__word-counter"></p>
+        <a href="/test" class="btn btn--twitter btn--medium">
+            <i class="fab fa-twitter"></i>
+            Tweet!</a>
+        <textarea name="tweet" id="tweet-review" cols="70" rows="8"></textarea>
+    </div>
+
+
+    <style>
+        body {
+            flex-direction: column;
+            justify-content: space-evenly;
+            height: 100vh;
+        }
+    </style>
+
+{% endblock %}

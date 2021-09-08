@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;800;900&display=swap");
 @import index_styles
 @import song_page_styles
+@import tweet_page_styles
 //  Set the default settings
 *
   padding: 0
@@ -32,13 +33,27 @@ body
     color: $gray_lightest
     background: $gray_lighter
 // Buttons 
-
+.btn
+  padding: 0.2rem
+  transition: transform 450ms ease
+  border: none
+  text-decoration: none
+  color: black
+  cursor: pointer
+  &:hover
+    transform: scale(1.2)
+  &--twitter
+    color: white
+    background-color: $blue_twitter
+  &--red
+    background-color: #00A19D
+  &--small
+    font-size: 0.7rem
+    width: 1.8rem
+    height: 1.8rem
+    border-radius: 50%
+  &--medium
+    font-size: 1rem
+    border-radius: 5px
 
 // profile info syles
-
-
-
-// Large view 
-// @media screen and ( min-width: 750px )
-
-

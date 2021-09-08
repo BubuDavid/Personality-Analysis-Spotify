@@ -107,6 +107,11 @@ class SpotifyBubuApi:
             track_list.append(
                 { key:value for (key, value) in track.items() if key in key_names}
             )
+        # Format the name (I do not want names with (colaborations))
+        if 'name' in key_names:
+            for track in track_list:
+                track['name'] = track['name'].split(' (')[0]
+                track['name'] = track['name'].split('(')[0]
         # Change the id key because of the databse problematic
         for track in track_list:
             track['track_id'] = track.pop('id')
@@ -228,12 +233,12 @@ if __name__ == '__main__':
         type        = 'tracks',
         time_range  = 'short_term',
         #limit       = 0,
-        key_names   = ['name', 'artists', 'id', 'uri'],
+        key_names   = ['name', 'artists', 'id', 'uri', 'album'],
     )
     # Saves all the data
-    # with open('../static/scripts/songs.json', 'w') as outfile:
-    #      json.dump(top_tracks_json, outfile, indent=4)
-    # print(json.dumps(top_tracks_json, indent=4, sort_keys=True))
+    with open('../static/scripts/songs.json', 'w') as outfile:
+         json.dump(top_tracks_json, outfile, indent=4)
+    print(json.dumps(top_tracks_json, indent=4, sort_keys=True))
 
 
     ### Recently played part ###

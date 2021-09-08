@@ -22,6 +22,9 @@ spotify = SpotifyBubuApi(
 # Define the spotify scopes that we want access to.
 scopes = ['user-top-read', 'user-read-recently-played']
 
+# Get the url for authorization
+spotify_auth_url = spotify.get_auth_url(scopes)
+
 
 # Init our app flask object
 app = Flask(__name__)
@@ -38,8 +41,6 @@ def index_method():
     # Set up default user_info
     if 'user_info' not in session:
         session['user_info'] = ''
-    # Get the url for authorization
-    spotify_auth_url = spotify.get_auth_url(scopes)
     # Create the context to pass it to the page
     context = {
         'page_title'      : 'Welcome!',
@@ -85,9 +86,7 @@ def songs_page_method(type='', term=''):
     """
     # Check if the user is login and get into the right url
     if 'user_info' not in session or not type:
-        redirect('/')
-    # Display the correct information
-    print(term)
+        return redirect('/')
     if type == 'top' and term in ['short_term', 'long_term', 'medium_term']:
         songs = spotify.get_top_tracks_or_artists(
             key_names   = ['name', 'artists', 'id', 'uri','album'],
