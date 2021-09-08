@@ -10,26 +10,51 @@
         href="{{ url_for('static', filename='fontawesome/css/all.css') }}" rel="stylesheet"/>
         <!-- Custom Styles -->
         <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}"></head>
-    </head>
-    <body>
-        <header class="header">Personality Analysis based on
-            <i class="fab fa-spotify"></i>
-            Music
-        </header>
-        {% block content %}{% endblock %}
+</html></head><body>
+<header class="header">Personality Analysis based on
+    <i class="fab fa-spotify"></i>
+    Music
+</header>
+{% block content %}{% endblock %}
 
-        {% if context.user_info %}
-            <section class="profile_info">
-                <img id="profile_image" src="{{ context.user_info.user_image }}" alt="Profile Image"/>
-                <div class="profile_text">
-                    <p class="username">{{ context.user_info.username }}</p>
-                    <a class='logout' href="/logout">Log out</a>
+{% if context.user_info %}
+    <section class="menu">
+        <div class="menu__icons">
+            <div class="menu__icons--item">
+                <div>
+                    <img id="menu__image" src="{{ context.user_info.user_image }}" alt="Profile Image"/>
                 </div>
-            </section>
-        {% endif %}
+                <span class="tooltip menu_username">{{ context.user_info.username }}</span>
+            </div>
+            <div class="menu__icons--item">
+                <a href="/songs-page/top/medium_term" class="menu__icons--item">
+                    <i class="fas fa-trophy"></i>
+                </a>
+                <span class="tooltip">Top songs!</span>
+            </div>
+            <div class="menu__icons--item">
+                <a href="/songs-page/recent/" class="menu__icons--item">
+                    <i class="fas fa-headphones"></i>
+                </a>
+                <span class="tooltip">Recent songs!</span>
+            </div>
+            <div class="menu__icons--item">
+                <a href="/" class="menu__icons--item">
+                    <i class="fas fa-hashtag"></i>
+                </a>
+                <span class="tooltip">Tweet!</span>
+            </div>
+            <div class="menu__icons--item">
+                <a href="/logout" class="menu__icons--item">
+                    <i id='logout-btn' class="fas fa-sign-out-alt"></i>
+                </a>
+                <span class="tooltip">Log Out 😢</span>
+            </div>
+        </div>
+    </section>
+{% endif %}
 
 
-        <script src="{{ url_for('static', filename='scripts/index.js') }}"></script>
-        <script src="{{ url_for('static', filename='scripts/tweet_page_script.js') }}"></script>
-    </body>
-</html>
+<script src="{{ url_for('static', filename='scripts/index.js') }}"></script>
+<script src="{{ url_for('static', filename='scripts/menu.js') }}"></script>
+<script src="{{ url_for('static', filename='scripts/tweet_page_script.js') }}"></script></body></html>

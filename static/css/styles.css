@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;800;900&display=swap");
 .index-container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -274,7 +275,7 @@ img {
   padding: 2rem 0;
   width: 100%;
   margin: 0 2rem;
-  margin-top: 2.3rem;
+  margin-top: auto;
   background: #F5EAEA;
 }
 
@@ -323,7 +324,7 @@ img {
             flex-direction: row;
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
-    margin-top: 3rem;
+    margin-top: auto;
   }
   .song-container__item {
     margin: 0 1rem 1rem 0;
@@ -335,6 +336,173 @@ img {
   .song-container h1 {
     font-size: 1.2rem;
   }
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: 'Nunito';
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  background-color: #F5EAEA;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 100vh;
+}
+
+.menu {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 300px;
+  background: -webkit-gradient(linear, left top, left bottom, from(#5b5656), to(#979797));
+  background: linear-gradient(to bottom, #5b5656 0%, #979797 100%);
+  border-radius: 5rem;
+  -webkit-transform-origin: top center;
+          transform-origin: top center;
+  position: fixed;
+  bottom: 2rem;
+  left: 1rem;
+  -webkit-transition: height 1.2s ease;
+  transition: height 1.2s ease;
+}
+
+.menu.deactivate {
+  height: 0;
+}
+
+.menu #menu__image {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  -webkit-transform: translateY(-12px);
+          transform: translateY(-12px);
+  -webkit-transition: -webkit-transform 1s ease;
+  transition: -webkit-transform 1s ease;
+  transition: transform 1s ease;
+  transition: transform 1s ease, -webkit-transform 1s ease;
+}
+
+.menu #menu__image.deactivate {
+  -webkit-transform: translateY(70px);
+          transform: translateY(70px);
+}
+
+.menu .menu__icons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+  height: 100%;
+  color: #EEE;
+  font-size: 1.2rem;
+}
+
+.menu .menu__icons--item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transition: opacity 1s ease, -webkit-transform 450ms ease;
+  transition: opacity 1s ease, -webkit-transform 450ms ease;
+  transition: transform 450ms ease, opacity 1s ease;
+  transition: transform 450ms ease, opacity 1s ease, -webkit-transform 450ms ease;
+}
+
+.menu .menu__icons--item.deactivate {
+  -webkit-transform: translateY(-1000%);
+          transform: translateY(-1000%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.menu .menu__icons--item:hover i {
+  color: #191414;
+  background: #EEE;
+}
+
+.menu .menu__icons--item:hover span {
+  opacity: 1;
+}
+
+.menu .menu__icons a {
+  color: #EEE;
+  text-decoration: none;
+}
+
+.menu .menu__icons a i {
+  border-radius: 50%;
+  padding: 0.4rem;
+  -webkit-transition: background 450ms ease, color 450ms ease;
+  transition: background 450ms ease, color 450ms ease;
+}
+
+.menu .menu__icons .tooltip {
+  position: absolute;
+  top: 0;
+  line-height: 1rem;
+  -webkit-transform: translate(0, 5%);
+          transform: translate(0, 5%);
+  left: 45px;
+  text-align: center;
+  font-size: 0.9rem;
+  min-width: 100px;
+  color: #191414;
+  background: #EEE;
+  border-radius: 6px;
+  padding: 0.2rem;
+  opacity: 0;
+  pointer-events: none;
+  -webkit-transition: opacity 450ms ease, top 450ms ease;
+  transition: opacity 450ms ease, top 450ms ease;
+}
+
+.menu .menu__icons .menu_username {
+  -webkit-transform: translate(15px, 10px);
+          transform: translate(15px, 10px);
+  -webkit-transition: opacity 450ms ease, -webkit-transform 450ms ease;
+  transition: opacity 450ms ease, -webkit-transform 450ms ease;
+  transition: transform 450ms ease, opacity 450ms ease;
+  transition: transform 450ms ease, opacity 450ms ease, -webkit-transform 450ms ease;
+}
+
+.menu .menu__icons .menu_username.deactivate {
+  -webkit-transform: translate(15px, 80px);
+          transform: translate(15px, 80px);
 }
 
 @media screen and (min-width: 750px) {

@@ -146,7 +146,7 @@ img {
   padding: 2rem 0;
   width: 100%;
   margin: 0 2rem;
-  margin-top: 2.3rem;
+  margin-top: auto;
   background: #F5EAEA;
 }
 
@@ -195,7 +195,7 @@ img {
             flex-direction: row;
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
-    margin-top: 3rem;
+    margin-top: auto;
   }
   .song-container__item {
     margin: 0 1rem 1rem 0;

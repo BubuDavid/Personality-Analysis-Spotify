@@ -1,0 +1,98 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;800;900&display=swap");
+*
+  padding: 0
+  margin: 0
+  font-family: 'Nunito'
+  box-sizing: border-box
+
+body
+  background-color: #F5EAEA
+  display: flex
+  align-items: center
+  justify-content: center
+  height: 100vh
+
+$menuWidth: 50px  
+$menuHeight: 300px  
+$black_spotify: #191414
+$green_spotify: #1DB954
+$white : #EEE
+$gradient   : linear-gradient(to bottom, rgba(91,86,86,1) 0%, rgba(151,151,151,1) 100%)
+.menu
+  position: relative
+  display: flex
+  flex-direction: column
+  align-items: center
+  height: $menuHeight
+  background: $gradient
+  border-radius: 5rem
+  transform-origin: top center
+  position: fixed
+  bottom: 2rem
+  left: 1rem
+  transition: height 1.2s ease
+  &.deactivate
+    height: 0
+  & #menu__image
+    width: $menuWidth
+    height: $menuWidth
+    border-radius: 50%
+    cursor: pointer
+    transform: translateY(-12px)
+    transition: transform 1s ease
+    &.deactivate
+      transform: translateY(70px)
+  & .menu__icons
+    display: flex
+    align-items: center
+    justify-content: space-around
+    flex-direction: column
+    width: 100%
+    height: 100%
+    color: $white
+    font-size: 1.2rem
+    &--item
+      display: flex
+      position: relative
+      justify-content: center
+      align-items: center
+      transition: transform 450ms ease, opacity 1s ease
+      &.deactivate
+        transform: translateY(-1000%)
+        opacity: 0
+        pointer-events: none
+      &:hover i
+        color: $black_spotify
+        background: $white
+      &:hover span
+        opacity: 1
+    & a
+      color: $white
+      text-decoration: none
+      & i
+        border-radius: 50%
+        padding: 0.4rem
+        transition: background 450ms ease, color 450ms ease
+    & .tooltip
+      position: absolute
+      top: 0
+      line-height: 1rem
+      transform: translate(0, 5%)
+      left: 45px
+      text-align: center
+      font-size: 0.9rem
+      min-width: 100px
+      color: $black_spotify
+      background: $white
+      border-radius: 6px
+      padding: 0.2rem
+      opacity: 0
+      pointer-events: none
+      transition: opacity 450ms ease, top 450ms ease
+    & .menu_username
+      transform: translate(15px, 10px)
+      transition: transform 450ms ease, opacity 450ms ease
+      &.deactivate
+        transform: translate(15px, 80px)
+
+    
