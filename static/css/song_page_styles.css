@@ -186,24 +186,6 @@ img {
   font-weight: 300;
 }
 
-.categories {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-  width: 100%;
-  padding: 0 2rem;
-  position: absolute;
-  top: 2.5rem;
-}
-
-.categories a.active {
-  background-color: white;
-  color: #1DB954;
-  pointer-events: none;
-}
-
 @media screen and (min-width: 700px) {
   .song-container {
     width: 90%;
@@ -224,12 +206,6 @@ img {
   }
   .song-container h1 {
     font-size: 1.2rem;
-  }
-  .categories {
-    top: 3.3rem;
-  }
-  .categories a {
-    margin-right: 1rem;
   }
 }
 /*# sourceMappingURL=song_page_styles.css.map */

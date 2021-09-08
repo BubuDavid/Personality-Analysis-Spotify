@@ -17,6 +17,7 @@ function checkifScrolling() {
   };
 }
 checkifScrolling();
+<<<<<<< HEAD
 
 // This function checks the status of the songs.json
 // Returns the json content on string format
@@ -45,3 +46,5 @@ if (pageUrl.includes("/test")) {
 } else {
   console.log("hola");
 }
+=======
+>>>>>>> frontendExp

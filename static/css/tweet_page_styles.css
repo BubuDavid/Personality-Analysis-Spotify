@@ -1,0 +1,81 @@
+@media screen and (min-width: 750px) {
+  .random-songs__container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .random-song__item {
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    background: #00A19D;
+    margin-right: 1rem;
+    height: 250px;
+    min-width: 200px;
+    max-width: 250px;
+    padding: 1rem;
+    border-radius: 20px;
+    text-align: center;
+  }
+  .random-song__item h1 {
+    font-size: 1rem;
+  }
+  .random-song__item img {
+    border-radius: 10px;
+  }
+  .random-song__item p {
+    font-size: 0.8rem;
+  }
+  .random-song__item button {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+  }
+  .tweet__container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .tweet__container #tweet-review {
+    outline: none;
+    padding: 1rem;
+    font-size: 1rem;
+    border-radius: 20px;
+    margin: 1rem 0;
+  }
+  .tweet__container.forbidden #tweet__word-counter {
+    color: red;
+  }
+  .tweet__container.forbidden .btn {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+}
+/*# sourceMappingURL=tweet_page_styles.css.map */
