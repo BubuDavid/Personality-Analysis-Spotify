@@ -17,7 +17,7 @@ secret_key = config('SECRET_KEY')
 spotify = get_Spotify_API()
 # Define the spotify scopes that we want access to.
 scopes = ['user-top-read', 'user-read-recently-played', 'user-read-email']
-# Get the url for authorization
+# Get the url for authorization only one time.
 spotify_auth_url = spotify.get_auth_url(scopes)
 
 ###### Mongo setup ######
@@ -34,7 +34,7 @@ def index_method():
     """
     Index route, where all beggins. It starts with
     nothing but a page title and an url for get
-    spotify authorization
+    spotify authorization.
     """
     # Set up default user_info
     if 'user_info' not in session or not spotify.access_token:
@@ -53,7 +53,8 @@ def spotify_callback_method():
     """
     Spotify callback function, where spotify redirects,
     after login. This handles the token and the logic 
-    behind get the spotify information.
+    behind get the spotify information, also creates or updates
+    the database with the user info.
     """
     # Get the authorization code
     spotify_code = request.args.get('code')
